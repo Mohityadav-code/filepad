@@ -6,7 +6,6 @@ import App from './presentation/App'
 import { BrowserRouter } from 'react-router-dom'
 import reportWebVitals from './reportWebVitals'
 import './presentation/index.scss'
-import { PersistSelectedStates } from './presentation/supports/Persistence'
 import { ConfigProvider, theme } from 'antd'
 
 const container = document.getElementById('root')!
@@ -15,17 +14,16 @@ const root = createRoot(container)
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename='/filepad'>
-        <PersistSelectedStates>
-          <ConfigProvider
-            theme={{
-              algorithm: theme.darkAlgorithm,
-            }}
-          >
-            <App />
-          </ConfigProvider>
-        </PersistSelectedStates>
-      </BrowserRouter>
+
+      <ConfigProvider
+        theme={{
+          algorithm: theme.darkAlgorithm,
+        }}
+      >
+        <App />
+      </ConfigProvider>
+
+
     </Provider>
   </React.StrictMode>
 )
